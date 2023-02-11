@@ -24,7 +24,7 @@ public fun <T: MutableMap<*, *>> T.alsoRegister(): T = apply { allCaches += this
  * A simplified and optimized [SymbolProcessorProvider].
  */
 public abstract class KspProvider(private val getProcessor: ()-> KspProcessor) : SymbolProcessorProvider {
-    override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor = object : SymbolProcessor {
+    final override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor = object : SymbolProcessor {
         init {
             Environment = environment
         }
